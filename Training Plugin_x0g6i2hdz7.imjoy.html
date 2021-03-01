@@ -1,0 +1,42 @@
+﻿<docs>
+[TODO: write documentation for this plugin.]
+</docs>
+
+<config lang="json">
+{
+  "name": "Training Plugin",
+  "type": "web-worker",
+  "tags": [],
+  "ui": "",
+  "version": "0.1.0",
+  "cover": "",
+  "description": "[To train plugin coding/design]",
+  "icon": "extension",
+  "inputs": null,
+  "outputs": null,
+  "api_version": "0.1.8",
+  "env": "",
+  "permissions": [],
+  "requirements": ["https://docs.opencv.org/master/opencv.js"],
+  "dependencies": []
+}
+</config>
+
+<script lang="javascript">
+class ImJoyPlugin {
+  async setup(){
+    }
+    async blirjagklar(){
+        const klar = await api.prompt("Will I be able to do any actual image analysis", "yes/no/maybe, etc")
+        await api.showMessage("Did you belive in me: " + klar)
+    }
+    async run(ctx){
+        await this.blirjagklar()
+
+        const viewer = await api.createWindow({src: "https://kaibu.org/#/app", name: "Kaiboo"})
+        await viewer.view_image("https://images.proteinatlas.org/61448/1319_C10_2_blue_red_green.jpg")
+        await viewer.add_shapes([[[110, 303], [1512, 1800], [520, 2000]]], {shape_type:"inget", edge_color:"", name:""})
+  }
+}
+api.export(new ImJoyPlugin())
+</script>
